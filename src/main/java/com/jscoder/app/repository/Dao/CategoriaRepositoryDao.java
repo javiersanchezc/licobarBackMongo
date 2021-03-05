@@ -9,5 +9,6 @@ import java.util.Optional;
 
 public interface CategoriaRepositoryDao extends MongoRepository<categorias,String> {
 
+
     //Optional<categorias> findById(Integer id);
 }

@@ -29,27 +29,26 @@ public class categoriacontroller {
     @GetMapping("/categoria")
     @ApiOperation(value = "Find an user", notes = "Return a user by Id" )
 
-    public List<categorias> Consulta(){
+    public List<categorias> getAllCategory(){
 
         return repo.findAll();
     }
 
     @PostMapping("/categoria")
-    public String saveBook(@RequestBody categorias categoria){
+    public String saveCategory(@RequestBody categorias categoria){
         repo.save(categoria);
         return categoria.get_id();
     }
 
-   /* @GetMapping("/findcategorias/{id}")
-    public Optional<categorias> getBook(@PathVariable Integer id) {
-        return repo.findById(id);
-    }*/
+    @GetMapping("/findcategorias/{_id}")
+    public Optional<categorias> getCategory(@PathVariable String _id) {
+        return repo.findById(_id);
+    }
     @DeleteMapping("/delete/{id}")
     public String deleteCategoria(@PathVariable String id){
         repo.deleteById(id);
         return "category deleted with id : " + id;
-
-
-
     }
+
+
 }
